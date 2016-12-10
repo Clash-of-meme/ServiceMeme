@@ -39,7 +39,11 @@ public class UserApi  {
     }, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "Successful response", response = Meme.class, responseContainer = "List"),
-        
+
+        @io.swagger.annotations.ApiResponse(code = 204, message = "Successful response", response = Meme.class, responseContainer = "List"),
+
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Successful response", response = Meme.class, responseContainer = "List"),
+
         @io.swagger.annotations.ApiResponse(code = 401, message = "Vous devez êtes identifier pour accéder à cette ressource.", response = Meme.class, responseContainer = "List"),
         
         @io.swagger.annotations.ApiResponse(code = 403, message = "Vous n'avez pas l'autorisation d'accéder à cette ressource.", response = Meme.class, responseContainer = "List"),

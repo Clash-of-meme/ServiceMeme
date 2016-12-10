@@ -49,6 +49,9 @@ public class MemePattern   {
   @JsonProperty("text_bottom")
   private String textBottom = null;
 
+  @JsonProperty("token_user")
+  private String tokenUSer = null;
+
   public MemePattern idImgflip(String idImgflip) {
     this.idImgflip = idImgflip;
     return this;
@@ -121,6 +124,18 @@ public class MemePattern   {
     this.textBottom = textBottom;
   }
 
+    /**
+     * Get token user
+     * @return textTop
+     **/
+    @ApiModelProperty(value = "")
+    public String getTokenUSer() {
+        return tokenUSer;
+    }
+
+    public void setTokenUser(String token) {
+        this.tokenUSer = token;
+    }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,12 +161,12 @@ public class MemePattern   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MemePattern {\n");
+    sb.append("{\n");
     
-    sb.append("    idImgflip: ").append(toIndentedString(idImgflip)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    textTop: ").append(toIndentedString(textTop)).append("\n");
-    sb.append("    textBottom: ").append(toIndentedString(textBottom)).append("\n");
+    sb.append('"').append("id_imgflip").append('"').append(": ").append('"').append(toIndentedString(idImgflip)).append('"').append(',').append("\n");
+    sb.append('"').append("name").append('"').append(": ").append('"').append(toIndentedString(name)).append('"').append(',').append("\n");
+    sb.append('"').append("tex_top").append('"').append(": ").append('"').append(toIndentedString(textTop)).append('"').append(',').append("\n");
+    sb.append('"').append("text_bottom").append('"').append(": ").append('"').append(toIndentedString(textBottom)).append('"').append("\n");
     sb.append("}");
     return sb.toString();
   }

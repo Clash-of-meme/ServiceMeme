@@ -42,8 +42,6 @@ public class MemeApi  {
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "Successful response", response = Meme.class, responseContainer = "List"),
         
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Bad request. Pas d'utilisateur.", response = Meme.class, responseContainer = "List"),
-        
         @io.swagger.annotations.ApiResponse(code = 401, message = "Vous devez êtes identifier pour accéder à cette ressource.", response = Meme.class, responseContainer = "List"),
         
         @io.swagger.annotations.ApiResponse(code = 403, message = "Vous n'avez pas l'autorisation d'accéder à cette ressource.", response = Meme.class, responseContainer = "List"),
@@ -62,13 +60,15 @@ public class MemeApi  {
     }, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 204, message = "Successful response.", response = void.class),
+
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Bad request. Pas d'utilisateur.", response = Meme.class, responseContainer = "List"),
         
         @io.swagger.annotations.ApiResponse(code = 401, message = "Vous devez êtes identifier pour accéder à cette ressource.", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 403, message = "Vous n'avez pas l'autorisation d'accéder à cette ressource.", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 503, message = "Problème de connexion avec la base de donnée.", response = void.class) })
-    public Response memeIdDelete(@ApiParam(value = "L'id d'un meme",required=true) @PathParam("id") Double id
+    public Response memeIdDelete(@ApiParam(value = "L'id d'un meme",required=true) @PathParam("id") Integer id
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.memeIdDelete(id,securityContext);
@@ -82,6 +82,8 @@ public class MemeApi  {
     }, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "Successful response", response = Meme.class),
+
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Bad request. Pas d'utilisateur.", response = Meme.class, responseContainer = "List"),
         
         @io.swagger.annotations.ApiResponse(code = 401, message = "Vous devez êtes identifier pour accéder à cette ressource.", response = Meme.class),
         
@@ -121,7 +123,9 @@ public class MemeApi  {
     }, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 201, message = "Successful response", response = Meme.class),
-        
+
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Paramètres incorrectes", response = Meme.class),
+
         @io.swagger.annotations.ApiResponse(code = 401, message = "Vous devez êtes identifier pour accéder à cette ressource.", response = Meme.class),
         
         @io.swagger.annotations.ApiResponse(code = 403, message = "Vous n'avez pas l'autorisation d'accéder à cette ressource.", response = Meme.class),
