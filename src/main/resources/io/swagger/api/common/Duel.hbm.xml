@@ -20,7 +20,7 @@
         <property name="id_meme1" type="java.lang.Integer">
             <column name="id_meme1" not-null="true"/>
         </property>
-        <property name="id_meme2" type="java.lang.Boolean">
+        <property name="id_meme2" type="java.lang.Integer">
             <column name="id_meme2" not-null="true"/>
         </property>
     </class>
