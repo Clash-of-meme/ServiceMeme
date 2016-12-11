@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 import org.glassfish.jersey.internal.util.Base64;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.ws.rs.core.Response;
@@ -165,14 +166,16 @@ public class MemeApiServiceImpl extends MemeApiService {
 
         HttpGet request = new HttpGet(builder.toString());
         request.addHeader(Constants.AUTH,(Constants.BASIC_AUTH+token));
+
          logger.info(request.getAllHeaders());
         logger.info(request.getURI());
         try {
             HttpResponse response = client.execute(request);
            logger.info("Le code retour du service est : " + response.getStatusLine().getStatusCode());
            if(response.getStatusLine().getStatusCode() == Constants.OK) {
+               logger.info(response.getEntity().getContentType());
                String result = EntityUtils.toString(response.getEntity());
-
+               logger.info(result);
                return Response.status(Constants.OK).entity(result).build();
            }
         } catch (IOException e) {
@@ -188,7 +191,7 @@ public class MemeApiServiceImpl extends MemeApiService {
         builder.setScheme(Constants.PROTOCOLE).setHost(Constants.HOST).setPort(Constants.PORT).setPath(Constants.SERVICE_MEME);
         logger.info("URL : " + builder.toString() );
 
-        String token = Base64.encodeAsString(Constants.API_LOGIN+":"+Constants.API_PASSWORD);
+        String token = Base64.encodeAsString(Constants.LOGIN_PROXY+":"+Constants.PASSWORD_PROXY);
         logger.info("Token d'authentification : "+token);
 
         HttpPost request = new HttpPost(builder.toString());
