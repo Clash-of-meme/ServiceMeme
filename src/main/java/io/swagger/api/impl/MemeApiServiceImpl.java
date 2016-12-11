@@ -254,7 +254,7 @@ public class MemeApiServiceImpl extends MemeApiService {
                 memeCree.setInQueue(false);
                 memeCree.setUrl(memeBO.getUrl());
 
-                return Response.status(Constants.OK).entity(memeCree).build();
+                return Response.status(Constants.CREATED).entity(memeCree).build();
             }
             else if (response.getStatusLine().getStatusCode() == Constants.BAD_REQUEST)
             {
